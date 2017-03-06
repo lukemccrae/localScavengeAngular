@@ -1,0 +1,58 @@
+<div class="container">
+    <ng-map id="map" default-style="false" ng-show="!$ctrl.showClues" center="current-location" zoom="15">
+        <marker position="current-location" on-click=""></marker>
+    </ng-map>
+
+    <div ng-show="$ctrl.showClues" class="clues" id="clues">
+        <p>hi there</p>
+        <h3>Welcome to Local Scavenge!</h3>
+        <h2>This is the timer.</h2>
+        <h1>{{$ctrl.time}}</h1>
+    </div>
+
+    <button class="btn btn-default" ng-show="$ctrl.showClues" ng-click="$ctrl.clues()" href="#">
+            Map
+    </button>
+
+    <button class="btn btn-default" ng-show="!$ctrl.showClues" ng-click="$ctrl.clues()" href="#">
+            Clues
+    </button>
+
+    <button ng-click="$ctrl.start()" class="btn btn-default" name="button">Start</button>
+
+</div>
+
+
+<!-- <script>
+    var lat;
+    var lng;
+
+    function initMap(lat, lng) {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 39.7576958,
+                lng: -105.00724629999999
+            },
+            zoom: 2
+        });
+    }
+    $(document).ready(function() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+            $.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=AIzaSyB6mjYhp5ca_RPpOdHu_Ul7E-YY6BYzmms')
+                .done(function(data) {
+                    console.log(data);
+                })
+                .fail(function(error) {
+                    console.log(error);
+                })
+        })
+        console.log(lat, lng);
+        var panPoint = new google.maps.LatLng(lat, lng);
+        map.panTo(panPoint);
+        map.setZoom(16);
+    })
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6mjYhp5ca_RPpOdHu_Ul7E-YY6BYzmms&callback=initMap&libraries=places" async defer></script> -->
